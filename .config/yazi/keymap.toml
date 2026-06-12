@@ -1,0 +1,23 @@
+[mgr]
+prepend_keymap = [
+    { on = "+",				run = "create",										desc = "Create a file (ends with / for directories)" },
+	{ on = "-",				run = "remove",										desc = "Trash selected files" },
+	{ on = "v",				run = "paste",										desc = "Paste files" },
+	{ on = "V",				run = "paste --before",								desc = "Paste files with overwrite" },
+	
+	{ on = "x",				run = "yank --cut",									desc = "Cut current character" },
+    { on = [ "c", "c" ],	run = "yank",										desc = "Copy file" },
+	{ on = "X",				run = "unyank",										desc = "Cancel cut" },
+	{ on = "C",				run = "unyank",										desc = "Cancel copy" },
+	
+	{ on = [ "c", "p" ],	run = "copy path",									desc = "Copy file URL" },
+	
+	{ on = ["t", "Left"],	run = "tab_switch -1 --relative",  					desc = "Switch to previous tab" },
+	{ on = ["t", "Right"],	run = "tab_switch 1 --relative",   					desc = "Switch to next tab" },
+]
+
+[input]
+prepend_keymap = [
+    # Undo/Redo/Casefy
+	{ on = "u",				run = [ "undo", "casefy lower" ], 					desc = "Undo, or lowercase if in visual mode" }
+]

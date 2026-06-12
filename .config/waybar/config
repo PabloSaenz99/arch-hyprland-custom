@@ -1,0 +1,76 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 16,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["network", "bluetooth", "clock", "tray"],
+
+  "hyprland/workspaces": {
+    "format": "{icon} {windows}",
+    "format-window-separator": "",
+    "disable-scroll": true,
+    "all-outputs": true,
+    "workspace-taskbar": {
+        "enable": true,
+        "update-active-window": true,
+        "format": "{icon}",
+        "icon-size": 18
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "{:%D %H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "network": {
+    "format-wifi": " ",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "  Offline",
+    "tooltip-format-wifi": " {essid} {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",  
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-no-controller": "",
+    "format-disabled": "",
+    "format-off": "",
+    "format-connected": " {num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+
+  "battery": {
+    "format": "{capacity}%",
+    "format-charging": " {capacity}%",
+    "format-full": "  {capacity}%"
+  },
+
+  "cpu": {
+    "format": "  {usage}%"
+  },
+
+  "memory": {
+    "format": "  {used}MB"
+  },
+
+  "disk" : {
+    "interval": 30,
+    "format": "Disk:  {percentage_free}%",
+    "path": "/"
+  },
+
+  "tray": {
+    "spacing": 10
+  }
+}

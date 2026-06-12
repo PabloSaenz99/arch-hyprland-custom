@@ -1,0 +1,57 @@
+/*https://github.com/Alexays/Waybar/wiki/Module:-Hyprland#workspaces*/
+
+* {
+  font-family: JetBrainsMono, monospace;
+  font-size: 16px;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: #cdd6f4;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+  border: none;
+}
+
+#workspaces button {
+  padding: 3px;
+  color: #cdd6f4;
+}
+
+#workspaces button.active {
+  background-color: #89b4fa;
+  color: #1e1e2e;
+  padding: 0 10px;
+  border-radius: 20px;
+  border: 0px;
+}
+
+#workspaces {
+  margin-left: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+#window, #clock, #battery, #network, #bluetooth, #cpu, #memory, #disk {
+  margin-top: 8px;
+  margin-right: 10px;
+  padding: 0 10px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+#bluetooth.on {
+  color: blue;
+}
+
+#network.disabled, #network.disconnected {
+  background-color: red;
+}
+
+#network.ethernet, #network.wifi {
+  color: green;
+}
