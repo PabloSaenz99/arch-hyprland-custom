@@ -17,11 +17,18 @@ window#waybar.empty #window {
 
 #workspaces button {
   padding: 3px;
-  color: #cdd6f4;
+  color: black;
+  background-color: #ffffff;
+  opacity: 0.6;
+  border: 1px solid white;
+  border-radius: 20px;
+  margin-right: 10px;
+  padding: 0 10px;
 }
 
 #workspaces button.active {
   background-color: #89b4fa;
+  opacity: 1;
   color: #1e1e2e;
   padding: 0 10px;
   border-radius: 20px;
@@ -34,7 +41,7 @@ window#waybar.empty #window {
   border-radius: 20px;
 }
 
-#window, #clock, #battery, #network, #bluetooth, #cpu, #memory, #disk {
+#window, #clock, #battery, #network, #bluetooth, #pulseaudio, #cpu, #memory, #disk {
   margin-top: 8px;
   margin-right: 10px;
   padding: 0 10px;
