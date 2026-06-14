@@ -13,7 +13,7 @@ local bothMod = mainMod .. " + " .. secondMod -- Sets both modifiers
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal), { description = "Open terminal" })
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("~/.config/rofi/launcher1.sh"), { description = "Open Apps menu" })
 hl.bind(bothMod .. " + DELETE", hl.dsp.exec_cmd("~/.config/rofi/powermenu.sh"), { description = "Power menu" })
-hl.bind(bothMod .. " + 7", hl.dsp.exec_cmd("~/.config/rofi_keybindings.sh"), { description = "Open keybindings helper" })
+hl.bind(bothMod .. " + 7", hl.dsp.exec_cmd("~/.config/rofi/keybindings.sh"), { description = "Open keybindings helper" })
 --hl.bind(bothMod .. " + DELETE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"), { description = "Shutdown or exit Hyprland" })
 local closeWindowBind = hl.bind(mainMod .. " + F4", hl.dsp.window.close(), { description = "Close focused window" })
 local closeWindowBind = hl.bind(mainMod .. " + X", hl.dsp.window.close(), { description = "Close focused window" })

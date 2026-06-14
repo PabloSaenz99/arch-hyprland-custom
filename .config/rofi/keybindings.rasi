@@ -1,0 +1,96 @@
+/**
+ * Custom Rofi theme for keybindings menu
+ * Dark blue background with a white border on selected items
+ */
+
+configuration {
+    show-icons: false;
+    modi: "drun";
+}
+
+* {
+    background:            #0B1730FF;
+    background-alt:        #11244CFF;
+    foreground:            #EAF3FFFF;
+    selected:              #2A4E8CFF;
+    active:                #5F82D6FF;
+    urgent:                #D65A5AFF;
+    border:                #1E4264FF;
+    text-color:              white;
+}
+
+window {
+    fullscreen:            false;
+    width:                 800px;
+    location:              center;
+    anchor:                center;
+    background-color:      @background;
+    border:                1px solid;
+    border-color:          @border;
+    border-radius:         14px;
+    margin:                0px;
+    padding:               0px;
+}
+
+mainbox {
+    spacing:               0px;
+    margin:                0px;
+    padding:               16px;
+    background-color:      transparent;
+}
+
+inputbar {
+    padding:               10px 12px;
+    border-radius:         10px;
+    border:                1px solid;
+    border-color:          @border;
+    background-color:      #112B4CFF;
+    text-color:            @foreground;
+}
+
+entry {
+    text-color:            @foreground;
+    background-color:      transparent;
+    placeholder-color:     #B0C8E0FF;
+}
+
+listview {
+    spacing:               1px;
+    margin:                8px 0px 0px 0px;
+    background-color:      transparent;
+}
+
+element {
+    padding:               2px 10px;
+    border-radius:         10px;
+    text-color:            @foreground;
+    background-color:      transparent;
+}
+
+element normal.normal {
+    background-color:      transparent;
+}
+
+element normal.alternate {
+    background-color:      #0D2042FF;
+}
+
+element selected.normal {
+    background-color:      @selected;
+    text-color:            @foreground;
+    border:                1px solid;
+    border-color:          white;
+}
+
+element selected.active {
+    background-color:      @active;
+    text-color:            @foreground;
+    border:                1px solid;
+    border-color:          white;
+}
+
+scrollbar {
+    handle-color:          @selected;
+    background-color:      #0F2A53FF;
+    border-radius:         10px;
+}
