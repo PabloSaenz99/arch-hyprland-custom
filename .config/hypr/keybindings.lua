@@ -12,7 +12,9 @@ local bothMod = mainMod .. " + " .. secondMod -- Sets both modifiers
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal), { description = "Open terminal" })
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("~/.config/rofi/launcher1.sh"), { description = "Open Apps menu" })
+hl.bind(bothMod .. " + DELETE", hl.dsp.exec_cmd("~/.config/rofi/powermenu.sh"), { description = "Power menu" })
 hl.bind(bothMod .. " + 7", hl.dsp.exec_cmd("~/.config/rofi_keybindings.sh"), { description = "Open keybindings helper" })
+--hl.bind(bothMod .. " + DELETE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"), { description = "Shutdown or exit Hyprland" })
 local closeWindowBind = hl.bind(mainMod .. " + F4", hl.dsp.window.close(), { description = "Close focused window" })
 local closeWindowBind = hl.bind(mainMod .. " + X", hl.dsp.window.close(), { description = "Close focused window" })
 local closeWindowBind = hl.bind(secondMod .. " + X", hl.dsp.window.close(), { description = "Close focused window" })
@@ -22,7 +24,6 @@ local closeWindowBind = hl.bind(secondMod .. " + X", hl.dsp.window.close(), { de
 -------------PROGRAMS---------------
 ------------------------------------
 
-hl.bind(bothMod .. " + DELETE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"), { description = "Shutdown or exit Hyprland" })
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager), { description = "Open file manager" })
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave-origin"), { description = "Open Brave Origin" })
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("code"), { description = "Open VS Code" })

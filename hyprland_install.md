@@ -86,6 +86,11 @@ Ejemplo de ejecucion: `exa -laa --icons --sort=type`
 ##### Interfaz grafica
 `sudo pacman -S pavucontrol`
 
+### Selector de emojis (rofi)
+`sudo pacman -S rofi-emoji`
+
+Ejecutar con: `rofi -modi emoji -show emoji -emoji-format '{emoji}'`
+
 # Apps utiles
 
 `https://github.com/hyprland-community/awesome-hyprland`
