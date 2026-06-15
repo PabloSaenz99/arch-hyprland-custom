@@ -31,7 +31,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = "${EDITOR:-NotepadNext} %s", desc = "$EDITOR",	for = "unix",	block = false },
+	{ run = "${EDITOR:-scite} %s", desc = "$EDITOR",	for = "unix",	block = false, orphan= true },
 	{ run = "code %s",          desc = "code", 								block = false },
 	{ run = "code -w %s",       desc = "code (block)",		for = "windows",block = true },
 ]

@@ -24,6 +24,10 @@ prepend_keymap = [
 	{ on = "C-f",         run = "search --via=fd",             					desc = "Search files by name via fd" },
 	{ on = "C-F",         run = "search --via=rg",             					desc = "Search files by content via ripgrep" },
 	
+	{ on = ["l", "s"],   run = "link",                        desc = "Symlink the absolute path of yanked files" },
+	{ on = ["l", "h"],   run = "hardlink",                    desc = "Hardlink yanked files" },
+	
+
 	{ on = [ "s", "a" ], run = "sort alphabetical --reverse=no",                 desc = "Sort alphabetically" },
 	{ on = [ "s", "A" ], run = "sort alphabetical --reverse=yes",                desc = "Sort alphabetically (reverse)" },
 	{ on = [ "s", "s" ], run = [ "sort size --reverse=no", "linemode size" ],    desc = "Sort by size" },
