@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+ #!/usr/bin/env bash
 set -euo pipefail
 
 KEYBINDINGS_FILE="${1:-$HOME/.config/hypr/keybindings.lua}"
@@ -158,4 +158,4 @@ fi
 
 printf '%s\n' "${menu_items[@]}" | while IFS='|' read -r left desc; do
     printf '%-*s   %s\n' "$max_left" "$left" "$desc"
-done | rofi -dmenu -i -p "Hypr keybindings" -mesg "Modificador | Tecla | Descripción" -theme "$HOME/.config/rofi/keybindings.rasi"
+done | rofi -dmenu -i -p "Hypr keybindings" -mesg "Modificador | Tecla | Descripción" -theme "$HOME/.config/rofi/shared/default.rasi"

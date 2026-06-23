@@ -8,15 +8,35 @@ configuration {
     modi: "drun";
 }
 
+
+/*****----- Global Properties -----*****/
+@import                          "/shared/onedark.rasi"
+@import                          "/shared/fonts.rasi"
+
 * {
-    background:            #0B1730FF;
-    background-alt:        #11244CFF;
-    foreground:            #EAF3FFFF;
-    selected:              #2A4E8CFF;
-    active:                #5F82D6FF;
-    urgent:                #D65A5AFF;
-    border:                #1E4264FF;
-    text-color:              white;
+    border-color:               var(selected);
+    handle-color:               var(selected);
+    background-color:           var(background);
+    foreground-color:           var(foreground);
+    alternate-background:        var(background-alt);
+    normal-background:           var(background);
+    normal-foreground:           var(foreground);
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(background);
+    active-background:           var(active);
+    active-foreground:           var(background);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(background);
+    selected-urgent-background:  var(active);
+    selected-urgent-foreground:  var(background);
+    selected-active-background:  var(urgent);
+    selected-active-foreground:  var(background);
+    alternate-normal-background: var(background);
+    alternate-normal-foreground: var(foreground);
+    alternate-urgent-background: var(urgent);
+    alternate-urgent-foreground: var(background);
+    alternate-active-background: var(active);
+    alternate-active-foreground: var(background);
 }
 
 window {
@@ -26,7 +46,7 @@ window {
     anchor:                center;
     background-color:      @background;
     border:                1px solid;
-    border-color:          @border;
+    border-color:          @border-color;
     border-radius:         14px;
     margin:                0px;
     padding:               0px;
@@ -43,15 +63,15 @@ inputbar {
     padding:               10px 12px;
     border-radius:         10px;
     border:                1px solid;
-    border-color:          @border;
+    border-color:          @border-color;
     background-color:      #112B4CFF;
-    text-color:            @foreground;
+    text-color:            white;
 }
 
 entry {
-    text-color:            @foreground;
     background-color:      transparent;
-    placeholder-color:     #B0C8E0FF;
+    placeholder-color:     white;
+    text-color:            white;
 }
 
 listview {
@@ -62,24 +82,19 @@ listview {
 
 element {
     padding:               2px 10px;
-    border-radius:         10px;
-    text-color:            @foreground;
+    border-radius:         6px;
     background-color:      transparent;
-}
-
-element normal.normal {
-    background-color:      transparent;
-}
-
-element normal.alternate {
-    background-color:      #0D2042FF;
+    text-color:            white;
 }
 
 element selected.normal {
-    background-color:      @selected;
-    text-color:            @foreground;
-    border:                1px solid;
-    border-color:          white;
+    background-color:            var(selected-normal-background);
+    text-color:                  var(selected-normal-foreground);
+}
+
+element-text {
+    background-color:      transparent;
+    text-color:            inherit;
 }
 
 element selected.active {
@@ -91,6 +106,6 @@ element selected.active {
 
 scrollbar {
     handle-color:          @selected;
-    background-color:      #0F2A53FF;
+    background-color:      @urgent-foreground;
     border-radius:         10px;
 }
