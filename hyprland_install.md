@@ -29,9 +29,6 @@ touch ~/.config/waybar/config ~/.config/waybar/style.css
 sudo pacman -S rofi
 ```
 
-Launcher:3-1
-PowerMenu:4-2
-
 ### Login (ly)
 
 ```
@@ -87,7 +84,7 @@ Ejemplo de ejecucion: `exa -laa --icons --sort=type`
 `sudo pacman -S pavucontrol`
 
 ### Selector de emojis (rofi)
-`sudo pacman -S rofi-emoji`
+`sudo pacman -S rofi-emoji wtype`
 
 Ejecutar con: `rofi -modi emoji -show emoji -emoji-format '{emoji}'`
 

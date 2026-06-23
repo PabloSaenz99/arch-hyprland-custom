@@ -26,7 +26,7 @@ hl.monitor({
 })
 
 hl.monitor({
-    output   = "FALLBACK",
+    output   = "Virtual",
     mode     = "1920x1080",
     position = "auto",
     scale    = "1",
@@ -45,6 +45,11 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("waybar")
    hl.exec_cmd("awww-daemon")
    hl.exec_cmd("hyprctl output create headless Virtual")
+   hl.exec_cmd("wl-paste --watch clipvault store")
+   
+   -- Screen sharing
+   hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+--   hl.exec_cmd("~/.config/startup.sh")
 --   hl.exec_cmd(terminal)
 --   hl.exec_cmd("nm-applet")
 --   hl.exec_cmd("waybar & hyprpaper & firefox")

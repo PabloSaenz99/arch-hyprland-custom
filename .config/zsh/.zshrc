@@ -127,6 +127,17 @@ alias ls='eza -lagh'
 alias grep='grep --color=auto'
 alias {hyprconf,hyprcnf}='code ~/.config/hypr/keybindings.lua'
 alias {mountconf,mountcnf}='sudo mount --bind ~/.config ~/arch-hyprland-custom/.config && code arch-hyprland-custom'
+alias h='cd ~'
+alias c='cd ~/.config'
+alias mount-disks='~/.config/startup.sh'
+
+alias i='yay -S'
+alias ii='pacman -Qi'
+alias {u,r}='yay -Rns'
+
+untargz() {
+  7z x -so "$1" | 7z x -si -ttar
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -4,8 +4,12 @@ dconf
 discord
 pulse
 vlc
+go
+JetBrains
+qBittorrent
 
 
 mimeapps.list
 QtProject.conf
 temp
+.env

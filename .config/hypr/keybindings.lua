@@ -9,11 +9,15 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local secondMod = "ALT" -- Sets "Alt" key as second modifier
 local bothMod = mainMod .. " + " .. secondMod -- Sets both modifiers
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal), { description = "Open terminal" })
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("~/.config/rofi/launcher1.sh"), { description = "Open Apps menu" })
+local theme = "-theme ~/.config/rofi/shared/default.rasi"
+
+-- MENUS
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("~/.config/rofi/launcher.sh"), { description = "Open Apps menu" })
 hl.bind(bothMod .. " + DELETE", hl.dsp.exec_cmd("~/.config/rofi/powermenu.sh"), { description = "Power menu" })
+hl.bind(secondMod .. " + 7", hl.dsp.exec_cmd("code ~/.config/hypr/keybindings.lua"), { description = "Edit keybindings" })
 hl.bind(bothMod .. " + 7", hl.dsp.exec_cmd("~/.config/rofi/keybindings.sh"), { description = "Open keybindings helper" })
+hl.bind(bothMod .. " + E", hl.dsp.exec_cmd("rofi + " ..theme .." + -modi emoji -show emoji -emoji-format '{emoji}' -theme-str 'listview { columns: 7; }' -kb-secondary-copy '' -kb-custom-1 Ctrl+c"), { description = "Open emojis" })
+hl.bind(secondMod .. " + C", hl.dsp.exec_cmd("clipvault list | rofi -dmenu -display-columns 2 + " ..theme .." + | clipvault get | wl-copy"), { description = "Open clipboard" })
 --hl.bind(bothMod .. " + DELETE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"), { description = "Shutdown or exit Hyprland" })
 local closeWindowBind = hl.bind(mainMod .. " + F4", hl.dsp.window.close(), { description = "Close focused window" })
 local closeWindowBind = hl.bind(mainMod .. " + X", hl.dsp.window.close(), { description = "Close focused window" })
@@ -24,9 +28,11 @@ local closeWindowBind = hl.bind(secondMod .. " + X", hl.dsp.window.close(), { de
 -------------PROGRAMS---------------
 ------------------------------------
 
+hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal), { description = "Open terminal" })
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager), { description = "Open file manager" })
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave-origin"), { description = "Open Brave Origin" })
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("code"), { description = "Open VS Code" })
+hl.bind(secondMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a -n"), { description = "Open color picker" })
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("flameshot gui"), { description = "Screenshot" })
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }), { description = "Toggle window float" })
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("NotepadNext"), { description = "Open NotepadNext" })
@@ -59,15 +65,13 @@ hl.bind(mainMod .. " + right",  hl.dsp.focus({ workspace = "e+1" }), { descripti
 -- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }), { description = "Focus next workspace" })
 
 -- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}), { description = "Focus workspace " .. i })
+    hl.bind(mainMod .. " + " .. i % 10,             hl.dsp.focus({ workspace = i}), { description = "Focus workspace " .. i })
 end
 
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }), { description = "Move window to workspace " .. i })
+    hl.bind(mainMod .. " + SHIFT + " .. i % 10,     hl.dsp.window.move({ workspace = i }), { description = "Move window to workspace " .. i })
 end
 
 -- Minimize window with special workspace
@@ -85,9 +89,9 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, descr
 
 
 -- Laptop multimedia keys for volume and LCD brightness
--- hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true, description = "Increase volume" })
--- hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true, description = "Decrease volume" })
--- hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true, description = "Toggle volume mute" })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true, description = "Increase volume" })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true, description = "Decrease volume" })
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true, description = "Toggle volume mute" })
 -- hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true, description = "Toggle microphone mute" })
 -- hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true, description = "Increase screen brightness" })
 -- hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true, description = "Decrease screen brightness" })
