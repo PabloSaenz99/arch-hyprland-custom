@@ -7,9 +7,14 @@ vlc
 go
 JetBrains
 qBittorrent
-
+LM-Studio
+LM Studio
+anythingllm*
+.config/docker/**
 
 mimeapps.list
 QtProject.conf
 temp
 .env
+
+!.config/docker/compose.yaml

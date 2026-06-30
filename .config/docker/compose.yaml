@@ -1,0 +1,45 @@
+services:
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:2.40.0
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/pablo/.config/docker/portainer:/data
+    ports:
+      - "9443:9443" #web ui
+      - "8000:8000"
+
+  immich-machine-learning:
+    container_name: immich_machine_learning
+    # For hardware acceleration, add one of -[armnn, cuda, rocm, openvino, rknn] to the image tag.
+    # Example tag: ${IMMICH_VERSION:-release}-cuda
+    image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}
+    # extends: # uncomment this section for hardware acceleration - see https://docs.immich.app/features/ml-hardware-acceleration
+    #   file: hwaccel.ml.yml
+    #   service: cpu # set to one of [armnn, cuda, rocm, openvino, openvino-wsl, rknn] for accelerated inference - use the `-wsl` version for WSL2 where applicable
+    volumes:
+      - /home/pablo/.config/docker/immich/model-cache:/cache
+    # env_file:
+    #   - .env
+    restart: no
+    ports:
+      - "3003:3003"
+
+  syncthing:
+    image: syncthing/syncthing
+    container_name: syncthing
+    restart: no
+    hostname: asus-arch
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - STGUIADDRESS=
+    volumes:
+      - /home/pablo/.config/docker/syncthing:/var/syncthing
+      - /home/Pablo_D/zzz_backups_homelab:/var/syncthing/zzz_backups_homelab
+    network_mode: host
+    # Port 8384

@@ -18,13 +18,24 @@ require("ms-win")
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "auto",
-    scale    = "auto",
-})
+-- List monitors with: hyprctl monitors all
 
+-- Main
+hl.monitor({
+    output   = "HDMI-A-1",
+    mode     = "preferred",
+    position = "1920x0",
+    scale    = "1",
+})
+-- Secundario
+hl.monitor({
+    output   = "DP-1",
+    mode     = "preferred",
+    position = "0x0",
+    scale    = "1",
+    --disabled = true
+})
+-- Virtual
 hl.monitor({
     output   = "Virtual",
     mode     = "1920x1080",
@@ -49,7 +60,7 @@ hl.on("hyprland.start", function ()
    
    -- Screen sharing
    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
---   hl.exec_cmd("~/.config/startup.sh")
+   hl.exec_cmd("sudo /home/pablo/.config/startup.sh")
 --   hl.exec_cmd(terminal)
 --   hl.exec_cmd("nm-applet")
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
