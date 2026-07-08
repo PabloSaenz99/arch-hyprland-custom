@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Yazi Explorer
+Exec=/home/pablo/.config/yazi/open-yazi.sh
+Icon=terminal
+Terminal=false
+Categories=chodir;
+MimeType=inode/directory;

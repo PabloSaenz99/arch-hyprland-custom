@@ -329,3 +329,10 @@ hl.window_rule({
   },
   float = true
 })
+
+hl.window_rule({
+  match = {
+    class = "discord"
+  },
+  opacity = "1.0 override 1.0 override 1.0 override",
+})

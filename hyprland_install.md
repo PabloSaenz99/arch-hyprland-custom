@@ -15,6 +15,13 @@ fc-cache -rv
 
 `sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick`
 
+###### Usar como explorador por defecto
+Crear un symlink entre la carpeta de yazi y ~/.local/share/applications/yazi-gui.desktop
+```
+update-desktop-database ~/.local/share/applications
+xdg-mime default yazi-gui.desktop inode/directory
+```
+
 ### Barra superior (waybar)
 
 ```
